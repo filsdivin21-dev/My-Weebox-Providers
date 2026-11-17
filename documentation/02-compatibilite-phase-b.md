@@ -7,14 +7,16 @@
 | 1. Identifier les formats acceptés | **FAIT** | [`01-format-weebox.md`](01-format-weebox.md) — extrait du moteur (`registry.rs`, `engine.rs`, `provider.rs`, `transpile.rs`, `prelude.js`) |
 | 2. Extension minimale inoffensive | **FAIT** | `providers/_probe/hello-weebox/` (aucun réseau, aucune vidéo) |
 | 3. Index de test | **FAIT** | `index.json`, `repository/index.drive.json` |
-| 4. Weebox reconnaît le dépôt | **À FAIRE (téléphone)** | — |
-| 5. L'extension apparaît | **À FAIRE (téléphone)** | — |
-| 6. Installation | **À FAIRE (téléphone)** | — |
-| 7. Chargement | **PARTIEL** | harnais local : la classe `Provider` se charge dans un moteur JS isolé |
-| 8. Exécution réelle | **À FAIRE (téléphone)** | harnais local : contrat des 4 méthodes vérifié |
+| 4. Weebox reconnaît le dépôt | **FAIT (téléphone)** | dépôt `filsdivin21-dev/My-Weebox-Providers` ajouté, sonde listée |
+| 5. L'extension apparaît | **FAIT (téléphone)** | `Probe — Hello Weebox` visible dans les extensions |
+| 6. Installation | **FAIT (téléphone)** | extension installée depuis le dépôt public |
+| 7. Chargement | **FAIT (téléphone)** | provider chargé sans erreur par le moteur QuickJS |
+| 8. Exécution réelle | **FAIT (téléphone)** | exécution de la sonde affichée : **« OK · 0,0 s »** (rapport de l'auteur, 2026-11-17) |
 
-La compatibilité **ne sera déclarée acquise** qu'après les étapes 4 à 8 réalisées dans
-l'application, sur le téléphone.
+La compatibilité est **acquise** : le format des manifests, le chargement du payload et
+l'exécution de la classe `Provider` ont été validés dans l'application réelle. Les providers de
+contenu peuvent donc être développés sur cette base. Voir le rapport d'audit des sources
+fournies : [`08-rapport-audit-sources.md`](08-rapport-audit-sources.md).
 
 ## Extension sonde
 
@@ -27,7 +29,9 @@ l'application, sur le téléphone.
 - **aucun appel réseau**, aucun accès fichier : elle prouve la reconnaissance, l'installation et
   l'exécution sans toucher à une source de contenu.
 
-Elle sera retirée (ou laissée désactivée) une fois la compatibilité prouvée.
+La compatibilité étant prouvée, elle est **conservée** comme contrôle de non-régression : si
+une future modification de l'index casse la chaîne (nom, `payloadURI`, résolution des chemins),
+la sonde cesse de répondre et le problème est visible immédiatement.
 
 ## Protocole de test sur ton téléphone
 
