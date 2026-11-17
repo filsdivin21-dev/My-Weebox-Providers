@@ -11,6 +11,7 @@
     "build": "node tools/build.mjs",
     "validate": "node tools/validate.mjs",
     "conformance": "node tools/conformance.mjs",
+    "url": "node tools/raw-url.mjs",
     "test": "node tools/build.mjs && node tools/validate.mjs && node tools/conformance.mjs && node --test tests/unit/"
   }
 }

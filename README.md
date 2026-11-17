@@ -12,6 +12,7 @@ Dépôt **personnel et indépendant** de providers (extensions) pour l'applicati
 | A — Audit des sources | **EN ATTENTE** | Aucune source fournie. Aucune source recherchée. |
 | B — Compatibilité Weebox | **FAIT (côté technique)** | Format identifié dans le code source du moteur ; sonde créée ; test réel sur téléphone **en attente** |
 | C — Projet indépendant | **FAIT** | Arborescence, outils, documentation, archive |
+| Intégration au dépôt GitHub | **PRÉPARÉ — NON POUSSÉ** | Branche `weebox/providers-repository`, bundle et patchs prêts ; accès GitHub absent de cet environnement |
 | D — Développement des providers | **NON COMMENCÉ** | Bloqué jusqu'à validation de la phase B sur ton téléphone |
 | E → G | **NON COMMENCÉ** | — |
 
@@ -54,6 +55,11 @@ provider = ajouter ou supprimer son dossier, puis relancer `npm run build`.
 2. Dans Weebox : **Settings › Plugins › Add source / Add by link**.
 3. Colle l'URL du dépôt, par exemple `https://github.com/<ton-compte>/My-Weebox-Providers`.
    Le moteur lit automatiquement `https://raw.githubusercontent.com/<compte>/<repo>/main/index.json`.
+
+Si le projet est placé dans un **sous-dossier** du dépôt, donner plutôt l'URL brute du fichier :
+`https://raw.githubusercontent.com/<compte>/<repo>/<branche>/<dossier>/index.json`.
+Détails et calcul automatique : [`documentation/05-publication.md`](documentation/05-publication.md)
+et `npm run url`.
 
 Autre possibilité (fichier unique, sans GitHub) : héberger `repository/index.drive.json` sur
 Google Drive, partagé en « Tout le monde disposant du lien », et coller le lien de partage du
