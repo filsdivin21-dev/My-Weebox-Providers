@@ -92,7 +92,27 @@ aurait fait disparaître les preuves de tests à l'intégration. Elles ont été
 URL brute à utiliser dans Weebox :
 **`https://raw.githubusercontent.com/filsdivin21-dev/Project-Translator-/main/My-Weebox-Providers/index.json`**
 
-## 8. Prochaine étape
+## 8. Décision du 2026-11-17 : dépôt dédié `My-Weebox-Providers`
+
+Nouvelle décision : dépôt **indépendant, dédié et public**, `index.json` à la racine. Elle
+remplace l'intégration en sous-dossier de `Project-Translator-` (§ 7), qui reste valable comme
+repli et n'a pas été appliquée en ligne.
+
+Vérifications réelles effectuées :
+
+| Point | Résultat |
+|---|---|
+| Possibilité de créer le dépôt | **NON** — `POST /user/repos` → `HTTP 401 Requires authentication` |
+| Identités disponibles | aucune : `gh` non connecté, aucun jeton, aucune clé SSH |
+| Nom `My-Weebox-Providers` sur le compte | libre — `HTTP 404` |
+| `Project-Translator-` intact | oui — HEAD `1723134`, `updated_at` inchangé |
+| Projet prêt pour une racine de dépôt | oui — `index.json` à la racine, `published/` présent |
+| Branche `main` prête à pousser | oui |
+
+Aucune création n'a été simulée : le dépôt n'existe pas et le message d'échec du serveur est
+conservé ci-dessus.
+
+## 9. Prochaine étape
 
 Deux options, au choix :
 

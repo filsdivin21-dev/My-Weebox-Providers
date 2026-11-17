@@ -1,4 +1,45 @@
-# Publication dans un dépôt GitHub existant
+# Publication — dépôt GitHub dédié
+
+## 0. Décision du 2026-11-17 : dépôt dédié (prioritaire)
+
+Décision : créer un dépôt **indépendant et dédié** `My-Weebox-Providers` sur le compte
+`filsdivin21-dev`, **public**, avec `index.json` **à la racine**. Ceci remplace l'intégration en
+sous-dossier du § 1 bis, qui reste documentée à titre de solution de repli.
+
+État vérifié : le nom est **libre** (API `…/repos/filsdivin21-dev/My-Weebox-Providers` → 404) et
+`Project-Translator-` n'est pas touché (HEAD `1723134`, inchangé).
+
+**Blocage réel :** aucune identité GitHub dans l'environnement de travail — `gh` non connecté,
+aucun jeton, aucune clé SSH, et l'appel de création renvoie `HTTP 401 Requires authentication`.
+La création doit donc être faite depuis un compte connecté.
+
+Manipulation minimale (3 minutes, une seule fois) :
+
+1. Ouvrir <https://github.com/new>.
+2. Nom : `My-Weebox-Providers` · Visibilité : **Public** · ne rien initialiser
+   (ni README, ni `.gitignore`, ni licence).
+3. Sur une machine avec Git :
+
+```bash
+# depuis le dossier contenant le bundle
+ git clone My-Weebox-Providers-0.1.0.bundle My-Weebox-Providers
+ cd My-Weebox-Providers
+ git remote add origin https://github.com/filsdivin21-dev/My-Weebox-Providers.git
+ git push -u origin main
+```
+
+URL brute attendue une fois publié (à confirmer par un HTTP 200) :
+
+```
+https://raw.githubusercontent.com/filsdivin21-dev/My-Weebox-Providers/main/index.json
+```
+
+Vérification : `curl -s -o /dev/null -w "%{http_code}\n"` sur cette URL doit renvoyer `200` et le
+corps doit commencer par `{ "name": "My Weebox Providers"`.
+
+---
+
+# Publication dans un dépôt GitHub existant (repli)
 
 Ce document prépare l'intégration de `My-Weebox-Providers` dans **ton** dépôt GitHub personnel,
 sans créer de dépôt concurrent. Rien n'est publié : aucune poussée n'a été faite.
