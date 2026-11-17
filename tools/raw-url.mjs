@@ -36,7 +36,9 @@ function parseRemote(remote) {
   return { owner: match.groups.owner, repo: match.groups.repo };
 }
 
-const remote = arg("remote") || git("remote", "get-url", "origin");
+// Accepte aussi une URL de dépôt passée en argument libre : npm run url -- https://github.com/<compte>/<dépôt>
+const positional = process.argv.slice(2).find((value) => !value.startsWith("--") && /github\.com[:/]/.test(value)) || "";
+const remote = arg("remote") || positional || git("remote", "get-url", "origin");
 const parsed = parseRemote(remote);
 const owner = arg("owner") || parsed?.owner || "";
 const repo = arg("repo") || parsed?.repo || "";
@@ -46,9 +48,17 @@ const branch =
   "main";
 const subdir = arg("subdir").replace(/^\/+|\/+$/g, "");
 
+if ((!owner || !repo) && remote && /github\.com/.test(remote)) {
+  console.error(`ÉCHEC  « ${remote} » n'est pas l'URL d'un dépôt GitHub.`);
+  console.error("        Attendu : https://github.com/<compte>/<dépôt> (la page d'accueil, le tableau de bord ou");
+  console.error("        une page de réglages ne contiennent pas de nom de dépôt exploitable).");
+  process.exit(1);
+}
+
 if (!owner || !repo) {
   console.error("ÉCHEC  Dépôt inconnu : aucun remote GitHub utilisable et --owner/--repo absents.");
   console.error("        node tools/raw-url.mjs --owner <compte> --repo <dépôt> [--branch main] [--subdir dossier]");
+  console.error("        node tools/raw-url.mjs https://github.com/<compte>/<dépôt>");
   process.exit(1);
 }
 
