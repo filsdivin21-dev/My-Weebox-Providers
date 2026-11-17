@@ -19,6 +19,25 @@ Deux conséquences :
 Dans les deux cas, **le dossier `published/` doit être publié** avec l'index : c'est lui qui
 contient le code téléchargé par Weebox.
 
+## 1 bis. Cible retenue (examinée le 2026-11-17)
+
+Compte : `filsdivin21-dev` — un seul dépôt public : **`Project-Translator-`**
+(branche par défaut `main`, projet Python, 789 fichiers, aucun `index.json`, aucun dossier
+`My-Weebox-Providers` : aucune collision).
+
+Choix : **intégration en sous-dossier `My-Weebox-Providers/`** du dépôt existant, ce qui évite
+un second dépôt concurrent et ne touche aucun fichier du traducteur.
+
+URL brute exacte à donner à Weebox (après fusion dans `main`) :
+
+```
+https://raw.githubusercontent.com/filsdivin21-dev/Project-Translator-/main/My-Weebox-Providers/index.json
+```
+
+Le `.gitignore` du dépôt hôte ignore `build/`, `dist/` et `*.log` : le dossier publié s'appelle
+donc `published/` (non ignoré) et les preuves de tests sont en `.txt`. Vérifié après application
+réelle des patchs sur une copie du dépôt : 37 fichiers suivis, aucun ignoré.
+
 ## 2. Choix recommandé
 
 | Situation de ton dépôt | Intégration |

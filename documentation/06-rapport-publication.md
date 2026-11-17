@@ -63,7 +63,36 @@ Je ne peux donc pas : examiner l'organisation réelle de ton dépôt, y créer u
 pousser. Je ne peux pas non plus te donner l'URL brute définitive : elle dépend de
 `<owner>/<repo>` et de la branche, que je n'ai pas.
 
-## 7. Prochaine étape
+## 7. Cible trouvée et intégration vérifiée (2026-11-17)
+
+Le compte fourni est `https://github.com/filsdivin21-dev` (profil, pas un dépôt). Son examen
+public montre **un seul dépôt** : `Project-Translator-`, branche `main`, 789 fichiers, 58 Mio,
+projet Python, **sans `index.json` ni dossier `My-Weebox-Providers`** → aucune collision.
+
+Intégration retenue : sous-dossier `My-Weebox-Providers/`, branche `main`, sans créer de second
+dépôt et sans modifier un seul fichier du traducteur.
+
+Vérifications faites sur une **vraie copie** du dépôt (clone public, lecture seule) :
+
+| Contrôle | Résultat |
+|---|---|
+| `git am` du patch d'intégration (1 patch) | PASS — appliqué sans conflit |
+| Fichiers de l'intégration suivis | 37 |
+| Fichiers de l'intégration ignorés par le `.gitignore` de l'hôte | aucun (après renommage des preuves en `.txt`) |
+| `index.json` à l'emplacement attendu | oui — `My-Weebox-Providers/index.json` (675 octets) |
+| Code publié présent | oui — `published/_probe/probe-hello-weebox/provider.js` |
+| `validate` + `conformance` exécutés depuis le sous-dossier | PASS |
+| Modifications hors `My-Weebox-Providers/` | aucune |
+| Nom exact `filsdivin21-dev/Project-Translator-` sur `raw` | HTTP 200 sur `README.md`, `main.py`, `requirements.txt` |
+| `…/My-Weebox-Providers/index.json` | HTTP 404 — normal, pas encore publié |
+
+Défaut trouvé et corrigé grâce à ce test : le `.gitignore` du dépôt hôte ignore `*.log`, ce qui
+aurait fait disparaître les preuves de tests à l'intégration. Elles ont été renommées en `.txt`.
+
+URL brute à utiliser dans Weebox :
+**`https://raw.githubusercontent.com/filsdivin21-dev/Project-Translator-/main/My-Weebox-Providers/index.json`**
+
+## 8. Prochaine étape
 
 Deux options, au choix :
 
