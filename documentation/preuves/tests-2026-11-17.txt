@@ -1,0 +1,39 @@
+=== My-Weebox-Providers — preuves de tests ===
+date: 2026-11-17T10:16:36Z
+node: v26.13.0
+
+--- npm test ---
+
+> my-weebox-providers@0.1.0 test
+> node tools/build.mjs && node tools/validate.mjs && node tools/conformance.mjs && node --test tests/unit/
+
+Build OK — 1 extension(s) publiée(s) : probe-hello-weebox
+Index : index.json (675 octets)
+Validation OK — index conforme, 1 payload(s) inspecté(s) : published/_probe/probe-hello-weebox/provider.js
+  · probe-hello-weebox : aucun appel réseau observé pendant le test (normal hors ligne)
+  · probe-hello-weebox : chargé, 1 résultat(s) de recherche, contrat vérifié
+Conformité OK — 1 extension(s) chargée(s) et contrat vérifié.
+✔ la priorité place VF puis VOSTFR puis français (1.5507ms)
+✔ la classification est projetée sur les champs lus par Weebox (0.370475ms)
+✔ une langue non identifiable reste indéterminée, jamais français par défaut (0.354154ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.53564
+EXIT=npm_test=0
+
+--- URL (exemple avec paramètres) ---
+Dépôt      : EXEMPLE/my-weebox-providers (branche main)
+Index      : index.json
+
+URL brute de l'index (ce que télécharge Weebox) :
+  https://raw.githubusercontent.com/EXEMPLE/my-weebox-providers/main/index.json
+
+Lien à ajouter dans Weebox › Settings › Plugins :
+  https://github.com/EXEMPLE/my-weebox-providers
+  (équivalent : https://raw.githubusercontent.com/EXEMPLE/my-weebox-providers/main/index.json)
+EXIT=raw_url=0
