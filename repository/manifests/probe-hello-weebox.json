@@ -1,0 +1,17 @@
+{
+  "id": "probe-hello-weebox",
+  "name": "Probe — Hello Weebox",
+  "version": "0.1.0",
+  "author": "My-Weebox-Providers",
+  "description": "Extension sonde : vérifie que Weebox reconnaît, installe et exécute ce dépôt. Aucun réseau, aucune vidéo.",
+  "type": "onlinestream-provider",
+  "language": "javascript",
+  "lang": "multi",
+  "languages": {
+    "sub": [],
+    "dub": []
+  },
+  "payloadURI": "published/_probe/probe-hello-weebox/provider.js",
+  "manifestURI": "",
+  "notes": "Sonde de compatibilité (phase B). Ne lit aucun contenu."
+}

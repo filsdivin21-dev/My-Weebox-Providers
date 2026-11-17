@@ -1,0 +1,19 @@
+[
+  {
+    "id": "probe-hello-weebox",
+    "name": "Probe — Hello Weebox",
+    "version": "0.1.0",
+    "author": "My-Weebox-Providers",
+    "description": "Extension sonde : vérifie que Weebox reconnaît, installe et exécute ce dépôt. Aucun réseau, aucune vidéo.",
+    "type": "onlinestream-provider",
+    "language": "javascript",
+    "lang": "multi",
+    "languages": {
+      "sub": [],
+      "dub": []
+    },
+    "manifestURI": "",
+    "notes": "Sonde de compatibilité (phase B). Ne lit aucun contenu.",
+    "payload": "// Sonde de compatibilité pour Weebox — phase B.\n// But : prouver que le dépôt est reconnu, l'extension installée et le code exécuté.\n// Contraintes : aucun appel réseau, aucun accès fichier, aucune source vidéo.\n// Le moteur exige une classe globale nommée exactement `Provider`.\n\nclass Provider {\n  getSettings() {\n    return {\n      episodeServers: [\"probe\"],\n      supportsDub: false,\n    };\n  }\n\n  async search(_opts) {\n    return [\n      {\n        id: \"probe-1\",\n        title: \"Hello Weebox (probe)\",\n        url: \"\",\n        subOrDub: \"sub\",\n      },\n    ];\n  }\n\n  async findEpisodes(_id) {\n    return [\n      {\n        id: \"probe-ep-1\",\n        number: 1,\n        title: \"Épisode sonde\",\n        url: \"\",\n      },\n    ];\n  }\n\n  async findEpisodeServer(_episode, _server) {\n    // Aucune source vidéo : par construction, rien ne peut être lu.\n    return {\n      server: \"probe\",\n      headers: {},\n      videoSources: [],\n    };\n  }\n}\n"
+  }
+]

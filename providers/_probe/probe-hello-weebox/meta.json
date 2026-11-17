@@ -1,0 +1,8 @@
+{
+  "category": "_probe",
+  "status": "EN DEVELOPPEMENT",
+  "languages": [],
+  "compatible_weebox": "non testé — en attente du test réel sur téléphone",
+  "audited_source": null,
+  "notes": "Sonde de compatibilité de la phase B. Aucun réseau, aucune vidéo. À retirer une fois la compatibilité prouvée."
+}

@@ -1,0 +1,36 @@
+{
+  "repository": "My Weebox Providers",
+  "generated_by": "tools/build.mjs",
+  "weebox_extension_type": "onlinestream-provider",
+  "language_priority": [
+    "fr-VF",
+    "fr-VOSTFR",
+    "fr",
+    "en",
+    "multi",
+    "unknown"
+  ],
+  "statuses": [
+    "STABLE",
+    "DÉGRADÉ",
+    "EN DÉVELOPPEMENT",
+    "CASSÉ",
+    "RETIRÉ"
+  ],
+  "count": 1,
+  "providers": [
+    {
+      "id": "probe-hello-weebox",
+      "category": "_probe",
+      "name": "Probe — Hello Weebox",
+      "version": "0.1.0",
+      "status": "EN DEVELOPPEMENT",
+      "languages": [],
+      "compatible_weebox": "non testé — en attente du test réel sur téléphone",
+      "audited_source": null,
+      "notes": "Sonde de compatibilité de la phase B. Aucun réseau, aucune vidéo. À retirer une fois la compatibilité prouvée.",
+      "payload_sha256": "d728a305769e745a828e07d3d165848f095bab0d8ad5071870610885d730c4d3",
+      "payload_bytes": 958
+    }
+  ]
+}
