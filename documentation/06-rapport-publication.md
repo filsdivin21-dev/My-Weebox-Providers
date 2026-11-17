@@ -22,7 +22,7 @@ Date : 2026-11-17 · Branche de travail : `weebox/providers-repository`
 
 - `documentation/05-publication.md` — scénarios d'intégration, URL exacte, autorisation
 - `documentation/06-rapport-publication.md` — ce rapport
-- `documentation/preuves/tests-2026-11-17.log` — preuve d'exécution des tests
+- `documentation/preuves/tests-2026-11-17.txt` — preuve d'exécution des tests
 - `tools/raw-url.mjs` — calcul de l'URL brute
 
 ## 3. Fichiers modifiés
@@ -43,7 +43,7 @@ Date : 2026-11-17 · Branche de travail : `weebox/providers-repository`
 | `git bundle verify` | « The bundle records a complete history. » |
 | `unzip -t` archive | aucune erreur |
 
-Journal complet : `documentation/preuves/tests-2026-11-17.log`.
+Journal complet : `documentation/preuves/tests-2026-11-17.txt`.
 
 ## 5. État exact
 
